@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>  <!--emmet -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+       body{
+     background-image: url('https://img.freepik.com/free-vector/classroom-with-whiteboard-map_1308-30422.jpg');
+
+     background-size:cover;
+     background-repeat: no-repeat;
+     height: 100%;
+       }
+.head{
+
+text-align: center;
+margin-top: 5px;
+font-family: Georgia;
+text-decoration:underline;
+
+/* text-decoration: wavy; */
+}
+
+.top{
+    color: rgb(7, 7, 7);
+    display: flex;
+    gap: 90px;
+    margin: -6px 4px;
+
+}
+.top p{
+    font-size: large;
+}
+a{
+    color: white;
+    font-size: larger;
+    margin-top: 18px;
+    font-family: square;
+}
+.container{
+ /* background-image: linear-gradient(black, gray,black); */
+ background-color: rgb(54, 53, 53);
+    margin-top: -18.5%;
+    margin-left: 81%;
+    max-width:16%;
+    padding: 1%;
+    align-items: center;
+    gap: 5px;
+    border-radius: 17px;
+    border: inset 3px gray;
+    
+}
+.container:hover{
+    margin-top: -18.5%;
+    margin-left: 80.5%;
+    box-shadow: 8px -8px 8px  rgb(0, 0, 0);
+
+
+}
+.button{
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: white;
+    margin:  1px 2.5px;
+    cursor: pointer;
+color: black;
+font-weight: bolder;
+font-size: x-large;
+gap: 5px;
+}
+.button:hover{
+zoom: 105%;
+margin:  0px 0px;
+background-color: black;
+color: white;
+}
+.button4{
+    background-color: orange;
+    color: white;
+}
+.button5{
+    background-color: orange;
+    color: white;
+    font-size: 15px;
+}
+.button3{
+    background-color: aqua;
+    color: black;
+}
+.row{
+    margin: 8px 5px;
+    font-weight: bolder;
+    margin-left: 5px;
+}
+.input1
+{
+    margin: 10px 2px;
+font-size: 25px;
+    width: 92%;
+    min-height: 40px;
+    /* zoom: 150%; */
+    background-color: rgb(4, 114, 78);
+    /* border: 3px solid black ; */
+    /* border-style: inset 3px black; */
+}
+
+.showvalue{
+    width: 865px;
+    height: 480px;
+    /* border: 5px solid black; */
+    margin-top: -4px;
+    margin-left: 332px;
+    border: none;
+    opacity: 1;
+    font-size: 80px;
+    font-weight: bolder;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    color: aliceblue;
+}
+      #hour_clock {
+         position: absolute;
+         background: rgb(0, 0, 0);
+       
+         transform-origin: bottom;
+         height: 7%;
+         top: 22.5%;
+         left: 17.5%;
+         opacity: 1;
+         width: 0.8%;
+         margin:-100px -100px;
+         border-radius: 90%  90% 10px 10px;
+      }
+      #minute_clock {
+         position: absolute;
+         background: rgb(63, 62, 62);
+        
+         transform-origin: bottom;
+         left: 17.5%;
+         opacity: 1;
+         width: 0.6%;
+         height: 8%;
+         top: 22%;
+         margin:-100px -100px;
+         border-radius: 100%  100% 10px 10px;
+
+      }
+      #second_clock {
+         position: absolute;
+         background: rgb(181, 176, 176);
+        
+         transform-origin: bottom;
+         width: 0.3%;
+         height: 8%;
+         top: 21%;
+         left: 17.6%;
+         opacity:1;
+         margin:-95px -99px;
+         border-radius: 100%  100% 10px 10px;
+
+      }
+   
+      .dot {
+  height: 137px;
+  width: 137px;
+  background-color:rgb(45, 163, 196);
+  /* background: url(img/download.jpg) no-repeat; */
+  border-radius: 50%;
+  display: inline-block;
+  border: 6px solid black;
+ margin: -60% -60% 350px 90px;
+ 
+}
+
+.bottom{
+  bottom: 0;
+  text-align: center;
+  height: 10px;
+  width: 100%;
+  background-color:  rgb(12, 12, 12);
+  color: aqua;
+  position:fixed;
+  font-size: 10px;
+  
+}
+.calcbtn{
+    width: 100px;
+    height: 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-left: 710px;
+    margin-top: -17px;
+ background-color: black;
+}
+.calcbtn:hover{
+    /* box-shadow: 3px 3px 3px rgb(37, 224, 37) ; */
+    width: 105px;
+    height: 27px;
+    margin-left: 708px;
+    background-color: indianred;
+}
+
+
+</style>
+</head>
+<body >
+    <div class="date"></div>
+    <div class="heading">
+        <h1 class="head">CLASSROOM</h1>
+        <input class="showvalue"> </input>
+        
+<div >
+    <span class="dot">
+       <div id="sizeOfAnalog">
+         <div id="hour_clock"></div>
+         <div id="minute_clock"></div>
+         <div id="second_clock"></div>
+         <script>
+             var hour = document.getElementById("hour_clock");
+             var minute = document.getElementById("minute_clock");
+             var seconds = document.getElementById("second_clock");
+            var addClock = setInterval(function clock() {
+                var date_now = new Date();
+                var hr = date_now.getHours();
+                var min = date_now.getMinutes();
+                var sec = date_now.getSeconds();
+                var calc_hr = hr * 30 + min / 2;
+                var calc_min = min * 6;
+                var calc_sec = sec * 6;
+                hour.style.transform = "rotate(" + calc_hr + "deg)";
+                minute.style.transform = "rotate(" + calc_min + "deg)";
+                seconds.style.transform = "rotate(" + calc_sec + "deg)";}, 1000);
+           
+          </script>
+    </span>
+    </div>
+</div>
+    <!-- <button class="calcbtn">Clear</button> -->
+      <div class="container">
+        <div class="top">
+           <a href="https://www.casio.com/in/scientific-calculators/" target="new" value="CASIO">CASIO.</a>
+            <p>Super100x</p>
+        </div>
+        <div >
+            <input type="text" class="input1">
+        </div>
+        
+     <div class="row">
+         <button class="button button3">AC</button>
+         <button class="button button5">sqrt</button>
+         <button class="button button4">%</button>
+         <button class="button button4">+</button>
+      </div>
+       <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button button4">-</button>
+       </div>
+       <div class="row">
+        <button class="button">4</button>
+        <button class="button">5</button>
+        <button class="button">6</button>
+        <button class="button button4">*</button>
+   </div><div class="row">
+    <button class="button">1</button>
+    <button class="button">2</button>
+    <button class="button">3</button>
+    <button class="button button4">/</button>
+</div><div class="row">
+    <button class="button">0</button>
+    <button class="button">00</button>
+    <button class="button ">.</button>
+    <button class="button button4">=</button>
+</div>
+</div>
+
+
+
+
+
+
+<script src="https://kit.fontawesome.com/958ec9005e.js" crossorigin="anonymous"></script>
+<script>
+let string="";
+let buttons=document.querySelectorAll('.button');
+Array.from(buttons).forEach((button)=>{ button.addEventListener('click',(e)=>{ 
+    if(e.target.innerHTML=='='){
+                string=eval(string);
+        document.querySelector('.showvalue').value=string;
+
+    }
+    
+    else if(e.target.innerHTML=='AC'){
+                string="";
+            document.querySelector('.showvalue').value=string;
+
+    }
+    else if(e.target.innerHTML=='sqrt'){
+                string=Math.sqrt(string);
+            document.querySelector('.showvalue').value=string;
+
+    }
+    
+    else{
+    console.log(e.target)
+ string= string+e.target.innerHTML;
+ document.querySelector('.showvalue').value=string;}
+
+})})
+
+var date=new Date();
+date=date.toDateString();
+document.querySelector('.showvalue').value=date;
+//  string= string+e.target.innerHTML;
+//  document.querySelector('.showvalue').value=date;
+    // string="";
+            // document.querySelector('.showvalue').value=string;
+
+
+
+</script>
+
+
+
+
+<div class="bottom">
+    <footer>Keen To Serve.</footer>
+    </div>
+</body>
+</html>
